@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Characters } from 'src/app/interfaces/characters.interface';
 import { HpService } from 'src/app/services/hp.service';
 
 @Component({
@@ -7,11 +8,12 @@ import { HpService } from 'src/app/services/hp.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  listCharacters:Characters[]=[]
 
   constructor(private service:HpService) { }
 
   ngOnInit(): void {
-    this.service.getCharacters().subscribe(res=>console.log(res))
+    this.service.getCharacters().subscribe(res=>this.listCharacters=res)
   }
 
 }

@@ -1,4 +1,4 @@
-export interface Welcome {
+export interface Characters {
   name:            string;
   species:         Species;
   gender:          Gender;
