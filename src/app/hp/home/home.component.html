@@ -1,10 +1,14 @@
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto max-w-7x1">
-    <div class="flex flex-wrap -m-4">
-      <div *ngFor="let character of listCharacters" class="xl:w-1/3 md:w-1/2 p-4">
-        <div class="bg-gray-900 p-6 rounded-lg">
-          <img class="lg:h-60 xl:h-56 md:h-64 sm:h-72 xs:h-72 h-72  rounded w-full object-cover object-center mb-6" [src]="character.image" alt="Image Size 720x400">
-          <h3 class="tracking-widest text-yellow-600 text-xs font-medium title-font">{{character.house}}</h3>
+    <div class="flex flex-wrap -m-4 ">
+      <div *ngFor="let character of listCharacters" class="xl:w-1/3 md:w-1/2 p-4 ">
+        <div class="bg-gray-900 p-6 rounded-lg h-full">
+          <img class="  rounded w-full object-cover object-center mb-6" [src]="character.image" alt="Image Size 720x400">
+          <h3 [ngClass]="[character.house === 'Gryffindor'?'text-yellow-600':'',
+          character.house === 'Hufflepuff'?'text-yellow-300':'' ,
+          character.house === 'Slytherin'?'text-green-600':'',
+          character.house === 'Ravenclaw'?'text-blue-600':'']"
+          class="tracking-widest  text-xs font-medium title-font">{{character.house?character.house:'No house'}}</h3>
           <h2 class="text-lg text-gray-100 font-medium title-font mb-4">{{character.name}}</h2>
           <p class="leading-relaxed text-base">{{character.gender}}</p>
         </div>
